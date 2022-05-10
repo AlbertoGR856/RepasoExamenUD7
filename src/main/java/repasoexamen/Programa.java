@@ -5,10 +5,10 @@
  */
 package repasoexamen;
 
+import static ejercicio1.LecturaCSV.lecturaFicheroCSV;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.SortedMap;
-import static repasoexamen.LecturaCSV.lecturaFicheroCSV;
 import static repasoexamen.LecturaJSON.leerFicheroJSON;
 
 /**
