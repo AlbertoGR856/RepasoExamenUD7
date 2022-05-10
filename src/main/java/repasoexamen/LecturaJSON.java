@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ej1_lecturacsv;
+package repasoexamen;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.IOException;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -46,7 +45,7 @@ lectura
  */
 public class LecturaJSON {
 
-    private static ArrayList<RegistroJSON> leerFicheroJSON(String fichero) throws IOException {
+    public static ArrayList<RegistroJSON> leerFicheroJSON(String fichero) throws IOException {
 
         //Se crea y se inicializa un objeto de tipo  ObjectMapper 
         ObjectMapper mapeador = new ObjectMapper();
