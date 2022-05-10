@@ -5,6 +5,13 @@
  */
 package ejercicio3;
 
+import static ejercicio2.LecturaJSON.leerFicheroJSON;
+import ejercicio2.RegistroJSON;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
 /**
  *
  * @author GR6
@@ -41,7 +48,39 @@ El método toString de la clase Alumnado devuelve la información con el formato
 El método que convierte objetos RegistroJSON en objetos Alumnado realiza
 correctamente su función y devuelve la lista de objetos. El método es legible y eficiente
 1,25
-*/
+ */
 public class RegistrosToAlumnado {
-    
+
+    public static ArrayList<Alumnado> registrosAlumnos(ArrayList<RegistroJSON> listaRegistros) {
+
+        Alumnado alumno = new Alumnado();
+
+        ArrayList<Alumnado> listaAlumnado = new ArrayList<>();
+
+        SortedMap<String, RegistroJSON> mapRegistro = new TreeMap<>();
+        for (RegistroJSON registro : listaRegistros) {
+            mapRegistro.put(registro.getAlumnoA(), registro);
+        }
+
+        for (RegistroJSON listaRegistro : listaRegistros) {
+
+            alumno.setNombreAlumno(listaRegistro.getAlumnoA());
+            alumno.setMapIncialDescripcion(mapRegistro);
+            listaAlumnado.add(alumno);
+
+        }
+        return listaAlumnado;
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        ArrayList<RegistroJSON> listaAlumnosCalificaciones = leerFicheroJSON("calificacionesGrupo.json");
+        ArrayList<Alumnado> listaAlumnado = registrosAlumnos(listaAlumnosCalificaciones);
+        
+        for (Alumnado alumnado : listaAlumnado) {
+            
+            System.out.println(alumnado.toString());
+        }
+    }
+
 }

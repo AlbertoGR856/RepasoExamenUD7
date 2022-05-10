@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package repasoexamen;
+package prueba;
 
 import static ejercicio1.LecturaCSV.lecturaFicheroCSV;
+import static ejercicio2.LecturaJSON.leerFicheroJSON;
+import ejercicio2.RegistroJSON;
+import ejercicio3.Alumnado;
+import static ejercicio3.RegistrosToAlumnado.registrosAlumnos;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.SortedMap;
-import static repasoexamen.LecturaJSON.leerFicheroJSON;
 
 /**
  *
@@ -37,6 +40,12 @@ public class Programa {
         System.out.println("----------------------");
 
         //Ejercicio3
+        ArrayList<Alumnado> listaAlumnado = registrosAlumnos(listaAlumnosCalificaciones);
+        
+        for (Alumnado alumnado : listaAlumnado) {
+            
+            System.out.println(listaAlumnado.toString());
+        }
     }
 
 }

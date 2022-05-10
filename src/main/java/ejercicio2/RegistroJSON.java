@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package repasoexamen;
+package ejercicio2;
 // import com.fasterxml.jackson.databind.ObjectMapper; // version 2.11.1
 // import com.fasterxml.jackson.annotation.JsonProperty; // version 2.11.1
 /* ObjectMapper om = new ObjectMapper();
 Root[] root = om.readValue(myJsonString, Root[].class); */
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collector;
 
 /**
  *
@@ -165,6 +167,10 @@ public class RegistroJSON {
     @Override
     public String toString() {
         return "RegistroJSON{" + "alumnoA=" + alumnoA + ", oACV=" + oACV + ", eA=" + eA + ", tII=" + tII + ", tC=" + tC + ", iNG=" + iNG + ", fOL=" + fOL + ", cEAC=" + cEAC + '}';
+    }
+
+    public Collector<RegistroJSON, ?, Map<Object, RegistroJSON>> getKey() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    
