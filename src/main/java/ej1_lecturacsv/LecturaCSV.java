@@ -16,6 +16,7 @@ import java.util.TreeMap;
  * @author GR6
  */
 /*
+Ejercicio 1 – Lectura de datos CSV (1 puntos)
 Crea una clase, llamada LecturaCSV, que contenga un método que permita la lectura del fichero CSV de la raíz de tu
 proyecto. Este método recibe el nombre y ruta del fichero a leer y se encarga de devolver una estructura de tipo Map
 ordenada de forma que las iniciales de los módulos sean las claves y el nombre completo de cada módulo sean los
