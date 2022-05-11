@@ -9,6 +9,7 @@ import static ejercicio2.LecturaJSON.leerFicheroJSON;
 import ejercicio2.RegistroJSON;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -53,32 +54,38 @@ public class RegistrosToAlumnado {
 
     public static ArrayList<Alumnado> registrosAlumnos(ArrayList<RegistroJSON> listaRegistros) {
 
-        Alumnado alumno = new Alumnado();
-
-        ArrayList<Alumnado> listaAlumnado = new ArrayList<>();
-
-        SortedMap<String, RegistroJSON> mapRegistro = new TreeMap<>();
+        ArrayList<Alumnado> alumnados = new ArrayList<>();
         for (RegistroJSON registro : listaRegistros) {
-            mapRegistro.put(registro.getAlumnoA(), registro);
+            Alumnado alumno = new Alumnado();
+
+            alumno.setNombreAlumno(registro.getAlumnoA());
+            SortedMap<String, String> notas = new TreeMap<>();
+
+            notas.put("ACV", registro.getoACV());
+            notas.put("EA", registro.geteA());
+            notas.put("TII", registro.gettII());
+            notas.put("TC", registro.gettC());
+            notas.put("ING", registro.getiNG());
+            notas.put("FOL", registro.getfOL());
+            notas.put("CEAC", registro.getcEAC());
+
+            alumno.setMapIncialDescripcion(notas);
+
+            alumnados.add(alumno);
         }
 
-        for (RegistroJSON listaRegistro : listaRegistros) {
+        Collections.sort(alumnados);
 
-            alumno.setNombreAlumno(listaRegistro.getAlumnoA());
-            alumno.setMapIncialDescripcion(mapRegistro);
-            listaAlumnado.add(alumno);
-
-        }
-        return listaAlumnado;
+        return alumnados;
     }
 
     public static void main(String[] args) throws IOException {
 
         ArrayList<RegistroJSON> listaAlumnosCalificaciones = leerFicheroJSON("calificacionesGrupo.json");
         ArrayList<Alumnado> listaAlumnado = registrosAlumnos(listaAlumnosCalificaciones);
-        
+
         for (Alumnado alumnado : listaAlumnado) {
-            
+
             System.out.println(alumnado.toString());
         }
     }

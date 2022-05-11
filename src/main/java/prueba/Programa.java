@@ -41,11 +41,16 @@ public class Programa {
 
         //Ejercicio3
         ArrayList<Alumnado> listaAlumnado = registrosAlumnos(listaAlumnosCalificaciones);
-        
+
         for (Alumnado alumnado : listaAlumnado) {
-            
-            System.out.println(listaAlumnado.toString());
+
+            System.out.println(alumnado.toString());
         }
+
+        System.out.println("----------------------");
+
+        //Ejercicio4
+        
     }
 
 }
